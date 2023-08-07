@@ -6,10 +6,18 @@ import 'package:alxabrand_site/lk.dart';
 import 'package:alxabrand_site/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:badges/badges.dart' as badges;
 
-class AppBarProject extends StatelessWidget {
+import 'globals.dart';
+
+class AppBarProject extends StatefulWidget {
   const AppBarProject({super.key});
 
+  @override
+  State<AppBarProject> createState() => _AppBarProjectState();
+}
+
+class _AppBarProjectState extends State<AppBarProject> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -85,10 +93,14 @@ class AppBarProject extends StatelessWidget {
             },
             child: Container(
               margin: const EdgeInsets.only(left: 10, right: 10),
-              child: Image.asset(
-                'can.png',
-                width: 30,
-                height: 29,
+              child: badges.Badge(
+                badgeContent: Text(can.length.toString(), style: TextStyle(fontSize: 10, color: Colors.white),),
+                badgeStyle: badges.BadgeStyle(badgeColor: Color(0xffE48060)),
+                child: Image.asset(
+                  'can.png',
+                  width: 30,
+                  height: 29,
+                ),
               ),
             ),
           ),

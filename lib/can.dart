@@ -1,10 +1,14 @@
+import 'package:alxabrand_site/about.dart';
 import 'package:alxabrand_site/appbar.dart';
+import 'package:alxabrand_site/auth.dart';
 import 'package:alxabrand_site/collection.dart';
 import 'package:alxabrand_site/footer.dart';
 import 'package:alxabrand_site/globals.dart';
+import 'package:alxabrand_site/lk.dart';
 import 'package:alxabrand_site/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:badges/badges.dart' as badges;
 
 class CanPage extends StatefulWidget {
   const CanPage({super.key});
@@ -23,7 +27,100 @@ class _CanPageState extends State<CanPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            const AppBarProject(),
+            Container(
+              margin: const EdgeInsets.only(top: 10),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.07,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const MainPage()));
+                    },
+                    child: Image.asset(
+                      'logo.png',
+                      width: 221,
+                      height: 42,
+                    ),
+                  ),
+                  const Spacer(),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AboutPage()));
+                    },
+                    style: TextButton.styleFrom(padding: EdgeInsets.zero, foregroundColor: Colors.black),
+                    child: Text(
+                      'О нас',
+                      style: GoogleFonts.raleway(textStyle: const TextStyle(fontWeight: FontWeight.w600, color: Colors.black)),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 60,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const CollectionPage()));
+                    },
+                    style: TextButton.styleFrom(padding: EdgeInsets.zero, foregroundColor: Colors.black),
+                    child:
+                        Text('Коллекции', style: GoogleFonts.raleway(textStyle: const TextStyle(fontWeight: FontWeight.w600, color: Colors.black))),
+                  ),
+                  const SizedBox(
+                    width: 100,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => AuthPage()));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 10, right: 10),
+                      child: Image.asset(
+                        'lk.png',
+                        width: 17,
+                        height: 20,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LkPage()));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 10, right: 10),
+                      child: Image.asset(
+                        'favorite.png',
+                        width: 20,
+                        height: 19,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => CanPage()));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 10, right: 10),
+                      child: badges.Badge(
+                        badgeContent: Text(
+                          can.length.toString(),
+                          style: TextStyle(fontSize: 10, color: Colors.white),
+                        ),
+                        badgeStyle: badges.BadgeStyle(badgeColor: Color(0xffE48060)),
+                        child: Image.asset(
+                          'can.png',
+                          width: 30,
+                          height: 29,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 70,
+                  )
+                ],
+              ),
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -202,15 +299,19 @@ class _CanPageState extends State<CanPage> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Icon(Icons.check, size: 200, color: Color(0xff82E142),),
-                                    Text('Спасибо\nза покупку!', textAlign: TextAlign.center, style: GoogleFonts.montserratAlternates(fontWeight: FontWeight
-                                        .w500,
-                                        fontSize:
-                                    45),),
+                                    Icon(
+                                      Icons.check,
+                                      size: 200,
+                                      color: Color(0xff82E142),
+                                    ),
+                                    Text(
+                                      'Спасибо\nза покупку!',
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.montserratAlternates(fontWeight: FontWeight.w500, fontSize: 45),
+                                    ),
                                   ],
                                 ),
                               ),
-
                             );
                           },
                         );

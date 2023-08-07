@@ -4,13 +4,14 @@ import 'package:alxabrand_site/collection.dart';
 import 'package:alxabrand_site/footer.dart';
 import 'package:alxabrand_site/globals.dart';
 import 'package:alxabrand_site/lk.dart';
+import 'package:alxabrand_site/product.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marquee/marquee.dart';
 
 void main() {
   initPrefs();
-  runApp(const MainPage());
+  runApp(MaterialApp(home: const MainPage()));
 }
 
 class MainPage extends StatelessWidget {
@@ -18,8 +19,7 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -66,17 +66,25 @@ class MainPage extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 100, right: 100),
                 width: MediaQuery.of(context).size.width,
                 child: SizedBox(
-                  height: 700,
+                  height: 633,
                   child: Row(
                     children: [
                       Expanded(
-                          child: SizedBox(
-                        height: 700,
-                        child: Image.asset(
-                          'vuxsar_1.png',
-                          fit: BoxFit.fill,
-                        ),
-                      )),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const ProductPage(
+                                    image: 'vuxsar_1.png',
+                                  )));
+                            },
+                            child: SizedBox(
+                              height: 700,
+                              child: Image.asset(
+                                'vuxsar_1.png',
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          )),
                       const SizedBox(
                         width: 15,
                       ),
@@ -85,11 +93,25 @@ class MainPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Expanded(
-                                child: Container(
-                              child: Image.asset('vuxsar_2.png'),
-                            )),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) => const ProductPage(
+                                          image: 'vuxsar_2.png',
+                                        )));
+                                  },
+                                  child: Image.asset('vuxsar_2.png'),
+                                )),
                             const SizedBox(height: 15),
-                            Expanded(child: Container(margin: const EdgeInsets.only(bottom: 0), child: Image.asset('vuxsar_3.png'))),
+                            Expanded(
+                                child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                          builder: (context) => const ProductPage(
+                                            image: 'vuxsar_3.png',
+                                          )));
+                                    },
+                                    child: Container(margin: const EdgeInsets.only(bottom: 0), child: Image.asset('vuxsar_3.png')))),
                           ],
                         ),
                       ),
@@ -98,11 +120,30 @@ class MainPage extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          Expanded(child: Container(margin: const EdgeInsets.only(bottom: 0), child: Image.asset('vuxsar_4.png'))),
+                          Expanded(
+                              child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) => const ProductPage(
+                                          image: 'vuxsar_4.png',
+                                        )));
+                                  },
+                                  child: Container(margin: const EdgeInsets.only(bottom: 0), child: Image.asset('vuxsar_4.png')))),
                           const SizedBox(
                             height: 15,
                           ),
-                          Expanded(child: Container(margin: const EdgeInsets.only(bottom: 0), child: Image.asset('vuxsar_5.png'))),
+                          Expanded(
+                              child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) => const ProductPage(
+                                          image: 'vuxsar_5.png',
+                                        )));
+                                  },
+                                  child: Container(
+                                      margin: const EdgeInsets.only(bottom: 0),
+                                      child: Image.asset('vuxsar_5'
+                                          '.png')))),
                         ],
                       ),
                     ],
@@ -132,7 +173,6 @@ class MainPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
